@@ -1,0 +1,256 @@
+﻿elevatorunitId,elevatorunitnumber,CpibUuid,countryname,DESCRIPTION,ItemFieldId,PerformanceStartDate,PerformanceEndDate,Readvalue
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,19
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,72
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,4
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,63
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,62
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,2
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,47
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,68
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,3
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,55
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,36
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,10
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+77429,47AK457,e9a684b4-d01d-48d5-aadb-782d3c9a83d1,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,28
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,248
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,4
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,8
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,4
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,4
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,5
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,5
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,114
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,4
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,2
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,60
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,14
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,1
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,10
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,10
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,9
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,8
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,8
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,26
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,1
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,22
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,21
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,1
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,20
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,23
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,3
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,19
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,23
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+762,SLCY9,5c83f534-f708-4604-94c6-eb13c3a34682,France,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,21
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,537
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,47
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,2
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,55
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,45
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,63
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,3
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,50
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,5
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,4
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,320
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,41
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,37
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,32
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,28
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,23
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,18
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,22
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,19
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,17
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,17
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,51
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,59
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,3
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,5
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,315
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,41
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,31
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,23
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,1
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,21
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,15
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+61587,38N0A857,56fc7250-9c33-4829-ab9b-ccf8e4084d12,Denmark,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,695
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,21
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,9
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,313
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,8
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,4
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,236
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,22
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,0
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,21
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,47
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,0
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,47
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,38
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,2
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,0
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,34
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,46
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,2
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,43
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,74
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,5
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,69
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,55
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,0
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,0
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,48
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,52
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,47
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Total Door Cycles,total_door_cycles,03-05-2025 01:44,04-05-2025 01:44,48
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Reversals,door_reversals,03-05-2025 01:44,04-05-2025 01:44,1
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Slow Door Operations,slow_door_operations,03-05-2025 01:44,04-05-2025 01:44,2
+8184,HPQ21,446f2d51-1d2f-4188-957f-b81da358803a,France,Door Operations,door_operations,03-05-2025 01:44,04-05-2025 01:44,45
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,203
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,2
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,18
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,188
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,3
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Cycles,front_door_cycles,02-05-2025 22:00,03-05-2025 21:59,3
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Front Door Reversals,front_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Cycles,rear_door_cycles,02-05-2025 22:00,03-05-2025 21:59,0
+85496,4701DR3,b87d43b9-e1e5-42a6-ad2d-b806be9d5b7d,Germany,Rear Door Reversals,rear_door_reversals,02-05-2025 22:00,03-05-2025 21:59,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+25696,X8523,71f8d1d4-a43e-4a3a-8ef2-6622c0c4d6d2,UK,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,52
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,26
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,14
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,6
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,6
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,5
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Operations,door_operations,03-05-2025 01:43,04-05-2025 01:43,4
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Total Door Cycles,total_door_cycles,03-05-2025 01:43,04-05-2025 01:43,9
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Door Reversals,door_reversals,03-05-2025 01:43,04-05-2025 01:43,0
+66678,AC443,269deb13-cd1c-47f3-a8aa-cca8e771815d,Switzerland,Slow Door Operations,slow_door_operations,03-05-2025 01:43,04-05-2025 01:43,0
