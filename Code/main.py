@@ -19,18 +19,31 @@ def main():
     df=load_Data()
     print_dataset_info(df)
 
-    pivot_df=prepare_pivoted_data(df)
-    label_faults(pivot_df)
+    pivot_df=prepare_pivoted_data(df)   
+
+    pivot_df=label_faults(pivot_df)
+
+    output_path = 'Data\\pivot\\pivot_output.csv'  # Change path as needed
+    pivot_df.to_csv(output_path, index=True)
+    print("Data Distribution")
     print_data_distribution(pivot_df)
+
     print_dataset_info(pivot_df)
     #save_pivot_df(pivot_df)
+
+
+
+
+
 
     # Build the model and train
     X = pivot_df[features]
     y = pivot_df['Fault']
     rf_scaler, X_scaled=get_scaler(X)
-
+    print("X_scaled shape:", X_scaled.shape)
     X_train, X_test, y_train, y_test=split_data(X_scaled, y)
+    print("X_train shape:", X_train.shape)
+    print("X_test shape:", X_test.shape)
     rf_model=build_rf_model(X_train, y_train)
 
     y_pred= predict_model(rf_model,X_test)
@@ -40,6 +53,7 @@ def main():
 
     fig = print_confusion_matrix(y_test, y_pred)
     st.pyplot(fig)  # For Streamlit
+
 
     # save the Model 
 
