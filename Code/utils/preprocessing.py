@@ -9,13 +9,13 @@ def prepare_pivoted_data(df):
         aggfunc='sum'
     ).reset_index()
 
-   
+    pivot_df=fetureAggregation(pivot_df)
 
     # Fill missing values with 0
     pivot_df.fillna(0, inplace=True)
     # Sort by time
     #pivot_df = pivot_df.sort_values(by='Date')
-    return fetureAggregation(pivot_df)
+    return pivot_df
 
 def fetureAggregation(pivot_df):
     # Aggregate features
@@ -25,7 +25,7 @@ def fetureAggregation(pivot_df):
 
     total_operations = pivot_df['door_operations'] + pivot_df['slow_door_operations']
     pivot_df['slow_door_operation_percentage'] = (pivot_df['slow_door_operations'] / total_operations) * 100
-    pivot_df['door_operations'] = total_operations
+    #pivot_df['door_operations'] = total_operations
 
 
 
