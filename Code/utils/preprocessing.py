@@ -1,6 +1,6 @@
 import pandas as pd
 def prepare_pivoted_data(df):
-    df['Date'] = pd.to_datetime(df['PerformanceStartDate'])
+    df['Date'] = pd.to_datetime(df['PerformanceStartDate']).dt.date
 
     pivot_df = df.pivot_table(
         index=['elevatorunitId', 'elevatorunitnumber', 'Date'],
