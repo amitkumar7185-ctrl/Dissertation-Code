@@ -3,29 +3,20 @@ import streamlit as st
 import os
 from utils.model_saver import check_model_exists, get_model_info, list_model_versions
 
-def display_menu():
-    st.sidebar.title("🔧 Elevator Fault Detection")
+def display_menu():   
     
-    # Data Management Section
-    st.sidebar.markdown("### 📊 Data Management")
+    # Data Status Section
+    st.sidebar.markdown("### 📊 Data Status")
     
     # Check if pivot file exists
     pivot_path = 'Data\\pivot\\pivot_output.csv'
     if os.path.exists(pivot_path):
         file_size = os.path.getsize(pivot_path) / 1024  # Size in KB
-        st.sidebar.success(f"✅ Pivot file exists ({file_size:.1f} KB)")
-        
-        # Option to refresh data
-        if st.sidebar.button("🔄 Refresh Data", help="Reprocess original data and update pivot file"):
-            # Clear the existing pivot file and session state
-            if os.path.exists(pivot_path):
-                os.remove(pivot_path)
-            if 'data_initialized' in st.session_state:
-                del st.session_state.data_initialized
-            st.experimental_rerun()
+        st.sidebar.success(f"✅ master file loaded ({file_size:.1f} KB)")
     else:
-        st.sidebar.info("📁 No pivot file found - will process original data")
-    
+        st.sidebar.error("❌ master file not found!")
+        st.sidebar.error("Please ensure pivot_output.csv exists in Data/Pivot/")
+
     # Model Management Section
     st.sidebar.markdown("### 🤖 Model Management")
     

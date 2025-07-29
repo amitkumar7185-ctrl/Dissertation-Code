@@ -30,7 +30,8 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
     # Show dataset info button
     if st.button("Show Dataset Info", key="dataset_info"):
         st.subheader("Dataset Information")
-        st.dataframe(pivot_df)
+        temp_df = pd.DataFrame(pivot_df).head(10)
+        st.dataframe(temp_df)  # Show only top 10 rows for quick overview
         print_dataset_info(pivot_df)
 
  
@@ -216,9 +217,7 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
     
     # Model Performance Section (if model is available)
     if rf_model is not None and X_test is not None and y_test is not None:
-        st.header("🤖 Model Performance")
-        st.write("Model is trained and ready for predictions!")
-        
+        st.header("🤖 Model Performance")       
         if st.button("Show Model Metrics", key="model_metrics"):
             from utils.model_builder import predict_model
             from utils.print_helper import print_classification, print_confusion_matrix
@@ -228,7 +227,7 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
             y_pred_proba = rf_model.predict_proba(X_test)[:, 1]  # Probability for positive class
             
             # Create tabs for different metrics
-            tab1, tab2, tab3, tab4, tab5 = st.tabs(["📊 Classification Report", "🎯 Confusion Matrix", "📈 Precision-Recall Curve", "📉 ROC Curve", "🔍 Feature Importance"])
+            tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["📊 Classification Report", "🎯 Confusion Matrix", "📈 Precision-Recall Curve", "📊 Precision & Recall", "📉 ROC Curve", "🔍 Feature Importance"])
             
             with tab1:
                 st.subheader("Classification Report")
@@ -257,40 +256,294 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
             
             with tab3:
                 st.subheader("Precision-Recall Curve")
-                precision, recall, _ = precision_recall_curve(y_test, y_pred_proba)
+                
+                # Calculate precision-recall curve
+                precision, recall, thresholds = precision_recall_curve(y_test, y_pred_proba)
                 pr_auc = auc(recall, precision)
                 
-                fig, ax = plt.subplots(figsize=(8, 6))
-                ax.plot(recall, precision, linewidth=2, label=f'PR Curve (AUC = {pr_auc:.3f})')
-                ax.set_xlabel('Recall')
-                ax.set_ylabel('Precision')
+                # Create the plot
+                fig, ax = plt.subplots(figsize=(10, 6))
+                
+                # Plot PR curve with markers for better visibility
+                ax.plot(recall, precision, linewidth=2, marker='o', markersize=4, 
+                       label=f'PR Curve (AUC = {pr_auc:.3f})', color='blue')
+                
+                # Add baseline (random classifier)
+                baseline = np.sum(y_test) / len(y_test)  # Proportion of positive class
+                ax.axhline(y=baseline, color='red', linestyle='--', 
+                          label=f'Random Classifier (Baseline = {baseline:.3f})')
+                
+                # Add some threshold points for interpretation
+                if len(thresholds) > 10:
+                    # Show every 10th threshold point
+                    step = len(thresholds) // 10
+                    for i in range(0, len(thresholds), step):
+                        if i < len(recall) and i < len(precision):
+                            ax.annotate(f'T={thresholds[i]:.2f}', 
+                                      (recall[i], precision[i]),
+                                      xytext=(5, 5), textcoords='offset points',
+                                      fontsize=8, alpha=0.7)
+                
+                ax.set_xlabel('Recall (Sensitivity)')
+                ax.set_ylabel('Precision (Positive Predictive Value)')
                 ax.set_title('Precision-Recall Curve')
                 ax.legend()
                 ax.grid(True, alpha=0.3)
+                ax.set_xlim([0.0, 1.0])
+                ax.set_ylim([0.0, 1.05])
+                
                 st.pyplot(fig)
                 plt.close(fig)
                 
-                st.info(f"**Area Under PR Curve: {pr_auc:.3f}**")
+                # Display additional metrics
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("PR AUC", f"{pr_auc:.3f}")
+                with col2:
+                    st.metric("Baseline (Random)", f"{baseline:.3f}")
+                with col3:
+                    best_f1_idx = np.argmax(2 * (precision * recall) / (precision + recall + 1e-10))
+                    best_threshold = thresholds[best_f1_idx] if best_f1_idx < len(thresholds) else 0.5
+                    st.metric("Best F1 Threshold", f"{best_threshold:.3f}")
+                
+                # Show diagnostic information
+                st.write("**Diagnostic Information:**")
+                st.write(f"- Number of test samples: {len(y_test)}")
+                st.write(f"- Positive class ratio: {np.sum(y_test)/len(y_test):.3f}")
+                st.write(f"- Unique prediction probabilities: {len(np.unique(y_pred_proba))}")
+                st.write(f"- Min probability: {np.min(y_pred_proba):.3f}")
+                st.write(f"- Max probability: {np.max(y_pred_proba):.3f}")
+                st.write(f"- Number of PR curve points: {len(precision)}")
+                
+                if pr_auc > 0.95:
+                    st.warning("⚠️ Very high PR AUC might indicate overfitting or perfect separation")
+                elif len(np.unique(y_pred_proba)) < 10:
+                    st.warning("⚠️ Limited unique probability values might indicate model issues")
             
             with tab4:
+                st.subheader("Precision & Recall Analysis")
+                
+                # Calculate precision-recall curve for threshold analysis
+                precision, recall, thresholds = precision_recall_curve(y_test, y_pred_proba)
+                
+                # Create two separate plots
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    # Precision vs Threshold
+                    fig1, ax1 = plt.subplots(figsize=(8, 6))
+                    ax1.plot(thresholds, precision[:-1], linewidth=2, marker='o', markersize=3, 
+                            color='blue', label='Precision')
+                    ax1.set_xlabel('Decision Threshold')
+                    ax1.set_ylabel('Precision')
+                    ax1.set_title('Precision vs Decision Threshold')
+                    ax1.grid(True, alpha=0.3)
+                    ax1.set_xlim([0.0, 1.0])
+                    ax1.set_ylim([0.0, 1.05])
+                    
+                    # Add current model threshold line (usually 0.5)
+                    current_threshold = 0.5
+                    current_precision_idx = np.argmin(np.abs(thresholds - current_threshold))
+                    if current_precision_idx < len(precision) - 1:
+                        current_precision = precision[current_precision_idx]
+                        ax1.axvline(x=current_threshold, color='red', linestyle='--', 
+                                   label=f'Default Threshold (0.5)')
+                        ax1.axhline(y=current_precision, color='red', linestyle=':', alpha=0.7)
+                        ax1.text(current_threshold + 0.05, current_precision + 0.05, 
+                                f'Precision: {current_precision:.3f}', fontsize=9)
+                    
+                    ax1.legend()
+                    st.pyplot(fig1)
+                    plt.close(fig1)
+                
+                with col2:
+                    # Recall vs Threshold
+                    fig2, ax2 = plt.subplots(figsize=(8, 6))
+                    ax2.plot(thresholds, recall[:-1], linewidth=2, marker='s', markersize=3, 
+                            color='green', label='Recall')
+                    ax2.set_xlabel('Decision Threshold')
+                    ax2.set_ylabel('Recall')
+                    ax2.set_title('Recall vs Decision Threshold')
+                    ax2.grid(True, alpha=0.3)
+                    ax2.set_xlim([0.0, 1.0])
+                    ax2.set_ylim([0.0, 1.05])
+                    
+                    # Add current model threshold line
+                    current_recall_idx = np.argmin(np.abs(thresholds - current_threshold))
+                    if current_recall_idx < len(recall) - 1:
+                        current_recall = recall[current_recall_idx]
+                        ax2.axvline(x=current_threshold, color='red', linestyle='--', 
+                                   label=f'Default Threshold (0.5)')
+                        ax2.axhline(y=current_recall, color='red', linestyle=':', alpha=0.7)
+                        ax2.text(current_threshold + 0.05, current_recall + 0.05, 
+                                f'Recall: {current_recall:.3f}', fontsize=9)
+                    
+                    ax2.legend()
+                    st.pyplot(fig2)
+                    plt.close(fig2)
+                
+                # Combined Precision and Recall vs Threshold
+                st.subheader("Combined Precision & Recall vs Threshold")
+                fig3, ax3 = plt.subplots(figsize=(12, 6))
+                
+                ax3.plot(thresholds, precision[:-1], linewidth=2, marker='o', markersize=3, 
+                        color='blue', label='Precision', alpha=0.8)
+                ax3.plot(thresholds, recall[:-1], linewidth=2, marker='s', markersize=3, 
+                        color='green', label='Recall', alpha=0.8)
+                
+                # F1 Score
+                f1_scores = 2 * (precision[:-1] * recall[:-1]) / (precision[:-1] + recall[:-1] + 1e-10)
+                ax3.plot(thresholds, f1_scores, linewidth=2, marker='^', markersize=3, 
+                        color='orange', label='F1-Score', alpha=0.8)
+                
+                # Find optimal F1 threshold
+                best_f1_idx = np.argmax(f1_scores)
+                best_f1_threshold = thresholds[best_f1_idx]
+                best_f1_score = f1_scores[best_f1_idx]
+                
+                ax3.axvline(x=best_f1_threshold, color='purple', linestyle='--', 
+                           label=f'Optimal F1 Threshold ({best_f1_threshold:.3f})')
+                ax3.axvline(x=current_threshold, color='red', linestyle='--', alpha=0.7,
+                           label=f'Default Threshold (0.5)')
+                
+                ax3.set_xlabel('Decision Threshold')
+                ax3.set_ylabel('Score')
+                ax3.set_title('Precision, Recall & F1-Score vs Decision Threshold')
+                ax3.legend()
+                ax3.grid(True, alpha=0.3)
+                ax3.set_xlim([0.0, 1.0])
+                ax3.set_ylim([0.0, 1.05])
+                
+                st.pyplot(fig3)
+                plt.close(fig3)
+                
+                # Display threshold analysis metrics
+                st.subheader("Threshold Analysis")
+                
+                col1, col2, col3, col4 = st.columns(4)
+                
+                with col1:
+                    st.metric("Best F1 Threshold", f"{best_f1_threshold:.3f}")
+                    st.metric("Best F1 Score", f"{best_f1_score:.3f}")
+                
+                with col2:
+                    if current_precision_idx < len(precision) - 1 and current_recall_idx < len(recall) - 1:
+                        st.metric("Precision @ 0.5", f"{current_precision:.3f}")
+                        st.metric("Recall @ 0.5", f"{current_recall:.3f}")
+                
+                with col3:
+                    # High precision threshold (e.g., 0.9 precision)
+                    high_prec_indices = np.where(precision[:-1] >= 0.9)[0]
+                    if len(high_prec_indices) > 0:
+                        high_prec_threshold = thresholds[high_prec_indices[0]]
+                        high_prec_recall = recall[high_prec_indices[0]]
+                        st.metric("Threshold for 90% Precision", f"{high_prec_threshold:.3f}")
+                        st.metric("Recall @ 90% Precision", f"{high_prec_recall:.3f}")
+                    else:
+                        st.metric("Threshold for 90% Precision", "N/A")
+                        st.metric("Recall @ 90% Precision", "N/A")
+                
+                with col4:
+                    # High recall threshold (e.g., 0.9 recall)
+                    high_recall_indices = np.where(recall[:-1] >= 0.9)[0]
+                    if len(high_recall_indices) > 0:
+                        high_recall_threshold = thresholds[high_recall_indices[-1]]
+                        high_recall_precision = precision[high_recall_indices[-1]]
+                        st.metric("Threshold for 90% Recall", f"{high_recall_threshold:.3f}")
+                        st.metric("Precision @ 90% Recall", f"{high_recall_precision:.3f}")
+                    else:
+                        st.metric("Threshold for 90% Recall", "N/A")
+                        st.metric("Precision @ 90% Recall", "N/A")
+                
+                # Threshold recommendation
+                st.subheader("📋 Threshold Recommendations")
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.write("**For High Precision (Minimize False Positives):**")
+                    if len(high_prec_indices) > 0:
+                        st.write(f"• Use threshold ≥ {high_prec_threshold:.3f}")
+                        st.write(f"• Expected precision: ≥ 90%")
+                        st.write(f"• Expected recall: {high_prec_recall:.1%}")
+                    else:
+                        st.write("• Model may not achieve 90% precision")
+                    st.write("• Good for: Critical fault detection where false alarms are costly")
+                
+                with col2:
+                    st.write("**For High Recall (Minimize False Negatives):**")
+                    if len(high_recall_indices) > 0:
+                        st.write(f"• Use threshold ≤ {high_recall_threshold:.3f}")
+                        st.write(f"• Expected recall: ≥ 90%")
+                        st.write(f"• Expected precision: {high_recall_precision:.1%}")
+                    else:
+                        st.write("• Model may not achieve 90% recall")
+                    st.write("• Good for: Safety-critical applications where missing faults is dangerous")
+            
+            with tab5:
                 st.subheader("ROC Curve")
-                fpr, tpr, _ = roc_curve(y_test, y_pred_proba)
+                
+                # Calculate ROC curve
+                fpr, tpr, roc_thresholds = roc_curve(y_test, y_pred_proba)
                 roc_auc = auc(fpr, tpr)
                 
-                fig, ax = plt.subplots(figsize=(8, 6))
-                ax.plot(fpr, tpr, linewidth=2, label=f'ROC Curve (AUC = {roc_auc:.3f})')
-                ax.plot([0, 1], [0, 1], 'k--', linewidth=1, label='Random Classifier')
-                ax.set_xlabel('False Positive Rate')
-                ax.set_ylabel('True Positive Rate')
+                # Create the plot
+                fig, ax = plt.subplots(figsize=(10, 6))
+                
+                # Plot ROC curve with markers
+                ax.plot(fpr, tpr, linewidth=2, marker='o', markersize=4,
+                       label=f'ROC Curve (AUC = {roc_auc:.3f})', color='blue')
+                
+                # Plot diagonal line (random classifier)
+                ax.plot([0, 1], [0, 1], 'k--', linewidth=1, label='Random Classifier (AUC = 0.5)')
+                
+                # Add some threshold points
+                if len(roc_thresholds) > 10:
+                    step = len(roc_thresholds) // 10
+                    for i in range(0, len(roc_thresholds), step):
+                        if i < len(fpr) and i < len(tpr):
+                            ax.annotate(f'T={roc_thresholds[i]:.2f}', 
+                                      (fpr[i], tpr[i]),
+                                      xytext=(5, 5), textcoords='offset points',
+                                      fontsize=8, alpha=0.7)
+                
+                ax.set_xlabel('False Positive Rate (1 - Specificity)')
+                ax.set_ylabel('True Positive Rate (Sensitivity)')
                 ax.set_title('ROC Curve')
                 ax.legend()
                 ax.grid(True, alpha=0.3)
+                ax.set_xlim([0.0, 1.0])
+                ax.set_ylim([0.0, 1.05])
+                
                 st.pyplot(fig)
                 plt.close(fig)
                 
-                st.info(f"**Area Under ROC Curve: {roc_auc:.3f}**")
+                # Display additional metrics
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("ROC AUC", f"{roc_auc:.3f}")
+                with col2:
+                    # Find optimal threshold using Youden's index
+                    optimal_idx = np.argmax(tpr - fpr)
+                    optimal_threshold = roc_thresholds[optimal_idx] if optimal_idx < len(roc_thresholds) else 0.5
+                    st.metric("Optimal Threshold", f"{optimal_threshold:.3f}")
+                with col3:
+                    # Specificity at optimal threshold
+                    specificity = 1 - fpr[optimal_idx]
+                    st.metric("Specificity @ Optimal", f"{specificity:.3f}")
+                
+                # Show diagnostic information
+                st.write("**ROC Diagnostic Information:**")
+                st.write(f"- Number of ROC curve points: {len(fpr)}")
+                st.write(f"- TPR at optimal threshold: {tpr[optimal_idx]:.3f}")
+                st.write(f"- FPR at optimal threshold: {fpr[optimal_idx]:.3f}")
+                
+                if roc_auc > 0.95:
+                    st.warning("⚠️ Very high ROC AUC might indicate overfitting")
+                elif roc_auc < 0.6:
+                    st.warning("⚠️ Low ROC AUC indicates poor model performance")
             
-            with tab5:
+            with tab6:
                 st.subheader("Feature Importance")
                 
                 # Get feature importance from Random Forest

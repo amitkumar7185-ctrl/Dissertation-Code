@@ -1,0 +1,8 @@
+Unnamed: 0,elevatorunitId,elevatorunitnumber,Date,slow_door_operations,total_door_cycles,total_door_operations,total_door_reversals,door_failure_events,hoistway_faults,safety_chain_issues,levelling_total_errors,startup_delays,average_run_time,total_run_starts,door_reversal_rate,safety_chain_issues_ratio,slow_door_operations_ratio,is_slow_door
+56515,12989,C5930,2025-07-25,24,271,233,13,0,0,0,0,0,0.0,0,0.055555556,0.0,0.1025641025641025,1
+75246,18288,4700DA3,2025-07-25,0,0,24,0,0,0,0,0,0,0.0,0,0.0,0.0,0.0,0
+113940,30361,F5527,2025-07-25,1,24,19,1,0,0,0,2,0,0.0,0,0.05,0.0,0.05,0
+234122,100793,Q29666,2025-07-25,0,2,2,0,0,0,0,0,0,8300.0,0,0.0,0.0,0.0,0
+235149,101214,D3324,2025-07-25,0,50,49,0,9,0,0,106,0,0.0,0,0.0,0.0,0.0,0
+243897,104754,X6128,2025-07-25,0,2,1,0,0,0,0,0,0,0.0,0,0.0,0.0,0.0,0
+255509,109777,B8744,2025-07-25,0,0,181,8,0,0,0,0,0,0.0,0,0.043956044,0.0,0.0,0

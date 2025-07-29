@@ -1,41 +1,36 @@
-
 import streamlit as st
 import pandas as pd
 import os
 from ui.sidebar_menu import display_menu
-from utils.model_loader import load_models
 from utils.model_saver import save_model_and_scaler, load_model_and_scaler, check_model_exists, get_model_info
 from views.dashboard import render_dashboard
 from views.upload_predict import render_upload_predict
 from views.eda import render_eda
 from views.shap_explain import render_shap
 from views.model_management import render_model_management
-from utils.load_data import load_Data
-from utils.print_helper import print_data_distribution, prin_df_head,print_dataset_info,print_classification,print_confusion_matrix
-from utils.preprocessing import prepare_pivoted_data, label_faults
-from utils.model_builder import split_data, build_rf_model, predict_model, get_scaler
+from utils.model_builder import split_data, build_rf_model, get_scaler
 from config import features
 
 # Configure the page
 st.set_page_config(
     page_title="Elevator Fault Detection Dashboard",
     page_icon="🔧",   
+    layout="wide",
     initial_sidebar_state="expanded"
 )
 
 #from utils.save_util import save_pivot_df
 
 def initialize_data_and_model():
-    """Initialize data and model only once using session state"""
+    """Initialize data and model - assumes pivot file exists as starting point"""
     if 'data_initialized' not in st.session_state:
-        output_path = 'Data\\pivot\\pivot_output.csv'
-        
-        # Check if pivot file already exists
+        output_path = 'Data\\Pivot\\pivot_output.csv'
+
+        # Load master data (assuming it exists)
         if os.path.exists(output_path):
-            with st.spinner("Loading existing pivot data..."):
-                st.info("📁 Found existing pivot file. Loading from cache...")
+            with st.spinner("Loading master data..."):
+                st.info("📁 Loading master data...")
                 
-                # Load pivot data from existing file
                 try:
                     pivot_df = pd.read_csv(output_path, index_col=0)
                     
@@ -44,28 +39,22 @@ def initialize_data_and_model():
                     missing_columns = [col for col in required_columns if col not in pivot_df.columns]
                     
                     if missing_columns:
-                        st.warning(f"❌ Pivot file missing columns: {missing_columns}")
-                        st.info("🔄 Reprocessing original data...")
-                        pivot_df = process_original_data()
+                        st.error(f"❌ Pivot file missing required columns: {missing_columns}")
+                        st.error("Please ensure the pivot file contains all required features and 'Fault' column.")
+                        st.stop()
                     else:
                         st.session_state.pivot_df = pivot_df
-                        
-                        # Also load original data for backup (optional)
-                        df = load_Data()
-                        st.session_state.df = df
-                        
-                        st.success(f"✅ Loaded {len(pivot_df)} records from existing pivot file!")
+                        st.success(f"✅ Loaded {len(pivot_df)} records from pivot file!")
                     
                 except Exception as e:
-                    st.warning(f"❌ Error loading pivot file: {e}")
-                    st.info("🔄 Falling back to processing original data...")
-                    # Fall back to original processing
-                    pivot_df = process_original_data()
-                    
+                    st.error(f"❌ Error loading pivot file: {e}")
+                    st.error("Please check if the pivot file is properly formatted.")
+                    st.stop()
         else:
-            with st.spinner("Processing original data (first time setup)..."):
-                st.info("🔄 No pivot file found. Processing original data...")
-                pivot_df = process_original_data()
+            st.error("❌ Pivot file not found!")
+            st.error(f"Please ensure the file exists at: {output_path}")
+            st.info("The application expects a pre-processed pivot file to be available.")
+            st.stop()
         
         # Check for force retrain flag
         force_retrain = st.session_state.get('force_retrain', False)
@@ -78,19 +67,7 @@ def initialize_data_and_model():
                 if rf_model is not None and rf_scaler is not None:
                     # Validate model compatibility with current data
                     try:
-                        X = pivot_df[features]
-                        X_scaled = rf_scaler.transform(X[:5])  # Test with first 5 rows
-                        _ = rf_model.predict(X_scaled)
-                        
-                        # Model is compatible, use it
-                        st.info("🤖 Found existing trained model. Loading...")
-                        st.success(message)
-                        
-                        if metadata:
-                            st.info(f"📅 Model created: {metadata.get('created_at', 'Unknown')}")
-                            st.info(f"🌳 Estimators: {metadata.get('n_estimators', 'Unknown')}")
-                        
-                        # Still need to split data for test metrics
+                        X = pivot_df[features]                       
                         y = pivot_df['Fault']
                         X_scaled_full = rf_scaler.transform(X)
                         X_train, X_test, y_train, y_test = split_data(X_scaled_full, y)
@@ -146,28 +123,6 @@ def initialize_data_and_model():
                 del st.session_state.force_retrain
             
             st.success("🤖 Model trained and ready for predictions!")
-
-def process_original_data():
-    """Process original data and save pivot file"""
-    output_path = 'Data\\pivot\\pivot_output.csv'
-    
-    # Load the Data and pre process
-    df = load_Data()
-    st.session_state.df = df
-    
-    pivot_df = prepare_pivoted_data(df)   
-    pivot_df = label_faults(pivot_df)
-    
-    # Create directory if it doesn't exist
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
-    # Save the processed data
-    pivot_df.to_csv(output_path, index=True)
-    st.session_state.pivot_df = pivot_df
-    
-    st.success(f"💾 Processed and saved {len(pivot_df)} records to pivot file!")
-    
-    return pivot_df
 
 def main():
     menu = display_menu()
