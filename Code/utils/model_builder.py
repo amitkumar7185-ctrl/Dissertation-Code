@@ -11,12 +11,12 @@ def get_scaler(X):
     return scaler, X_scaled
     
 def split_data(X_scaled, y):
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42, stratify=y)
     return X_train, X_test, y_train, y_test
 
 # Train Random Forest model
 def build_rf_model(X_train,y_train):    
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model = RandomForestClassifier(n_estimators=100, random_state=42,class_weight='balanced')
     model.fit(X_train, y_train)
     return model
 # Predictions
