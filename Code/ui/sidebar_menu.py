@@ -62,6 +62,7 @@ def display_menu():
         "Upload & Predict", 
         "EDA", 
         "SHAP Explainability",
+        "Model Comparison",
         "Model Management"
     ])
     

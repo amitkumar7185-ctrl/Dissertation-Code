@@ -6,9 +6,34 @@ import numpy as np
 from sklearn.metrics import precision_recall_curve, roc_curve, auc, classification_report
 from utils.print_helper import print_data_distribution, print_dataset_info
 
-def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_test=None):
-    """Render the main dashboard with data overview and model insights"""
+def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, lgb_model=None, lgb_scaler=None, X_test=None, y_test=None):
+    """Render the main dashboard with data overview and model insights for both RF and LightGBM"""
     st.title("Elevator Fault Detection Dashboard")
+    
+    # Model Status Section
+    st.header("🤖 Model Status")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if rf_model is not None:
+            st.success("✅ Random Forest Model Ready")
+        else:
+            st.error("❌ Random Forest Model Not Available")
+    
+    with col2:
+        if lgb_model is not None:
+            st.success("✅ LightGBM Model Ready")
+        else:
+            st.error("❌ LightGBM Model Not Available")
+    
+    with col3:
+        available_models = []
+        if rf_model is not None:
+            available_models.append("Random Forest")
+        if lgb_model is not None:
+            available_models.append("LightGBM")
+        st.info(f"📊 Available Models: {len(available_models)}")
     
     # Data Overview Section
     st.header("📊 Data Overview")
@@ -215,22 +240,105 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
             range_comparison['Mean_Difference'] = range_comparison['Fault_Mean'] - range_comparison['No_Fault_Mean']
             st.dataframe(range_comparison)
     
-    # Model Performance Section (if model is available)
-    if rf_model is not None and X_test is not None and y_test is not None:
-        st.header("🤖 Model Performance")       
+    # Model Performance Section (if models are available)
+    if (rf_model is not None or lgb_model is not None) and X_test is not None and y_test is not None:
+        st.header("🤖 Model Performance")
+        
+        # Quick comparison if both models are available
+        if rf_model is not None and lgb_model is not None:
+            st.subheader("📊 Quick Model Comparison")
+            from utils.model_builder import predict_model_with_proba
+            
+            # Debug information
+            st.write(f"DEBUG: X_test type: {type(X_test)}")
+            st.write(f"DEBUG: y_test type: {type(y_test)}")
+            if hasattr(X_test, 'shape'):
+                st.write(f"DEBUG: X_test shape: {X_test.shape}")
+            if hasattr(y_test, 'shape'):
+                st.write(f"DEBUG: y_test shape: {y_test.shape}")
+            
+            # Get predictions from both models
+            rf_pred, rf_pred_proba = predict_model_with_proba(rf_model, X_test)
+            lgb_pred, lgb_pred_proba = predict_model_with_proba(lgb_model, X_test)
+            
+            # Calculate metrics for both models
+            from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+            
+            rf_metrics = {
+                'Accuracy': accuracy_score(y_test, rf_pred),
+                'Precision': precision_score(y_test, rf_pred),
+                'Recall': recall_score(y_test, rf_pred),
+                'F1-Score': f1_score(y_test, rf_pred),
+                'ROC AUC': roc_auc_score(y_test, rf_pred_proba)
+            }
+            
+            lgb_metrics = {
+                'Accuracy': accuracy_score(y_test, lgb_pred),
+                'Precision': precision_score(y_test, lgb_pred),
+                'Recall': recall_score(y_test, lgb_pred),
+                'F1-Score': f1_score(y_test, lgb_pred),
+                'ROC AUC': roc_auc_score(y_test, lgb_pred_proba)
+            }
+            
+            # Display comparison
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write("**🌲 Random Forest**")
+                for metric, value in rf_metrics.items():
+                    st.metric(metric, f"{value:.3f}")
+            
+            with col2:
+                st.write("**⚡ LightGBM**")
+                for metric, value in lgb_metrics.items():
+                    # Show comparison with RF
+                    delta = value - rf_metrics[metric]
+                    st.metric(metric, f"{value:.3f}", delta=f"{delta:+.3f}")
+            
+            st.divider()
+        
+        # Model selection for detailed analysis
+        available_models = []
+        if rf_model is not None:
+            available_models.append("Random Forest")
+        if lgb_model is not None:
+            available_models.append("LightGBM")
+        
+        if len(available_models) > 1:
+            selected_model = st.selectbox("Select Model for Detailed Analysis:", available_models, key="model_select")
+        else:
+            selected_model = available_models[0] if available_models else None
+        
+        # Show model status cards
+        col1, col2 = st.columns(2)
+        with col1:
+            if rf_model is not None:
+                st.success("✅ Random Forest Model: Ready")
+            else:
+                st.error("❌ Random Forest Model: Not Available")
+        
+        with col2:
+            if lgb_model is not None:
+                st.success("✅ LightGBM Model: Ready")
+            else:
+                st.error("❌ LightGBM Model: Not Available")
+        
         if st.button("Show Model Metrics", key="model_metrics"):
-            from utils.model_builder import predict_model
+            from utils.model_builder import predict_model_with_proba
             from utils.print_helper import print_classification, print_confusion_matrix
             
+            # Get the selected model
+            current_model = rf_model if selected_model == "Random Forest" else lgb_model
+            model_name = selected_model
+            
             # Make predictions
-            y_pred = predict_model(rf_model, X_test)
-            y_pred_proba = rf_model.predict_proba(X_test)[:, 1]  # Probability for positive class
+            y_pred, y_pred_proba = predict_model_with_proba(current_model, X_test)
             
             # Create tabs for different metrics
             tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["📊 Classification Report", "🎯 Confusion Matrix", "📈 Precision-Recall Curve", "📊 Precision & Recall", "📉 ROC Curve", "🔍 Feature Importance"])
             
             with tab1:
-                st.subheader("Classification Report")
+                st.subheader(f"Classification Report - {model_name}")
                 report = classification_report(y_test, y_pred, output_dict=True)
                 
                 # Display metrics in columns
@@ -249,13 +357,13 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
                 st.text(classification_report(y_test, y_pred))
             
             with tab2:
-                st.subheader("Confusion Matrix")
+                st.subheader(f"Confusion Matrix - {model_name}")
                 fig = print_confusion_matrix(y_test, y_pred)
                 st.pyplot(fig)
                 plt.close(fig)  
             
             with tab3:
-                st.subheader("Precision-Recall Curve")
+                st.subheader(f"Precision-Recall Curve - {model_name}")
                 
                 # Calculate precision-recall curve
                 precision, recall, thresholds = precision_recall_curve(y_test, y_pred_proba)
@@ -321,7 +429,7 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
                     st.warning("⚠️ Limited unique probability values might indicate model issues")
             
             with tab4:
-                st.subheader("Precision & Recall Analysis")
+                st.subheader(f"Precision & Recall Analysis - {model_name}")
                 
                 # Calculate precision-recall curve for threshold analysis
                 precision, recall, thresholds = precision_recall_curve(y_test, y_pred_proba)
@@ -481,7 +589,7 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
                     st.write("• Good for: Safety-critical applications where missing faults is dangerous")
             
             with tab5:
-                st.subheader("ROC Curve")
+                st.subheader(f"ROC Curve - {model_name}")
                 
                 # Calculate ROC curve
                 fpr, tpr, roc_thresholds = roc_curve(y_test, y_pred_proba)
@@ -544,11 +652,13 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
                     st.warning("⚠️ Low ROC AUC indicates poor model performance")
             
             with tab6:
-                st.subheader("Feature Importance")
+                st.subheader(f"Feature Importance - {model_name}")
                 
-                # Get feature importance from Random Forest
+                # Get feature importance from the selected model
                 from config import features
-                feature_importance = rf_model.feature_importances_
+                from utils.model_builder import get_feature_importance
+                
+                feature_importance = get_feature_importance(current_model)
                 feature_names = features
                 
                 # Create a dataframe for easier plotting
@@ -561,7 +671,7 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
                 fig, ax = plt.subplots(figsize=(10, 8))
                 bars = ax.barh(importance_df['feature'], importance_df['importance'])
                 ax.set_xlabel('Feature Importance')
-                ax.set_title('Random Forest Feature Importance')
+                ax.set_title(f'{model_name} Feature Importance')
                 ax.grid(True, alpha=0.3)
                 
                 # Add value labels on bars

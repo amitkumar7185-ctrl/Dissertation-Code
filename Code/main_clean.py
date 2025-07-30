@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
-#from utils.load_data import load_data
+from utils.load_data import load_data
 from utils.model_builder import get_scaler, split_data, build_rf_model, build_lgb_model
 from utils.model_saver import save_model_and_scaler, load_model_and_scaler, get_available_models
 from ui.sidebar_menu import display_menu
@@ -28,7 +28,7 @@ def initialize_data_and_models():
         return
     
     # Load pivot data with correct path
-    pivot_path = "./Data/Pivot/pivot_output.csv"
+    pivot_path = "../Data/Pivot/pivot_output.csv"
     
     if not os.path.exists(pivot_path):
         st.error(f"❌ Data file not found: {pivot_path}")
