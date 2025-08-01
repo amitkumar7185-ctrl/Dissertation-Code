@@ -14,8 +14,7 @@ from config import features
 # Configure the page
 st.set_page_config(
     page_title="Elevator Fault Detection Dashboard",
-    page_icon="🔧",   
-    layout="wide",
+    page_icon="🔧", 
     initial_sidebar_state="expanded"
 )
 
