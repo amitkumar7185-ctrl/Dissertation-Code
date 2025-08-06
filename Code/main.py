@@ -39,21 +39,21 @@ def initialize_data_and_model():
                     missing_columns = [col for col in required_columns if col not in pivot_df.columns]
                     
                     if missing_columns:
-                        st.error(f"❌ Pivot file missing required columns: {missing_columns}")
-                        st.error("Please ensure the pivot file contains all required features and 'Fault' column.")
+                        st.error(f"❌ master data file missing required columns: {missing_columns}")
+                        st.error("Please ensure the master data file contains all required features and 'Fault' column.")
                         st.stop()
                     else:
                         st.session_state.pivot_df = pivot_df
-                        st.success(f"✅ Loaded {len(pivot_df)} records from pivot file!")
+                        st.success(f"✅ Loaded {len(pivot_df)} records from master data file!")
                     
                 except Exception as e:
-                    st.error(f"❌ Error loading pivot file: {e}")
-                    st.error("Please check if the pivot file is properly formatted.")
+                    st.error(f"❌ Error loading master data file: {e}")
+                    st.error("Please check if the master data file is properly formatted.")
                     st.stop()
         else:
-            st.error("❌ Pivot file not found!")
+            st.error("❌ Master data file not found!")
             st.error(f"Please ensure the file exists at: {output_path}")
-            st.info("The application expects a pre-processed pivot file to be available.")
+            st.info("The application expects a pre-processed master data file to be available.")
             st.stop()
         
         # Check for force retrain flag
