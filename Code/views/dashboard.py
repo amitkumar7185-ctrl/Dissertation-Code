@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
+import datetime
+import os
 from sklearn.metrics import precision_recall_curve, roc_curve, auc, classification_report
 from utils.print_helper import print_data_distribution, print_dataset_info
 
@@ -227,7 +229,7 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
             y_pred_proba = rf_model.predict_proba(X_test)[:, 1]  # Probability for positive class
             
             # Create tabs for different metrics
-            tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["📊 Classification Report", "🎯 Confusion Matrix", "📈 Precision-Recall Curve", "📊 Precision & Recall", "📉 ROC Curve", "🔍 Feature Importance"])
+            tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["📊 Classification Report", "🎯 Confusion Matrix", "📈 Precision-Recall Curve", "📊 Precision & Recall", "📉 ROC Curve", "🔍 Feature Importance", "🔍 Actual vs Predicted Analysis"])
             
             with tab1:
                 st.subheader("Classification Report")
@@ -579,6 +581,183 @@ def render_dashboard(pivot_df, rf_model=None, rf_scaler=None, X_test=None, y_tes
                 st.subheader("Top Most Important Features")
                 for idx, row in top_features.iterrows():
                     st.metric(row['feature'], f"{row['importance']:.4f}")
+            
+            with tab7:
+                st.subheader("🔍 Actual vs Predicted Analysis")
+                
+                # Auto-generate CSV when tab is selected
+                st.info("� **Auto-generating complete test dataset CSV...** This contains ALL test records (20% of original dataset) with actual labels, predicted labels, and complete feature information.")
+                
+                # Display what the CSV contains
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.write("**📋 Dataset Contents:**")
+                    st.write("• All test records (20% split)")
+                    st.write("• Actual labels from dataset")
+                    st.write("• Predicted labels from model")
+                    st.write("• Prediction probabilities")
+                    st.write("• Classification results (TP/TN/FP/FN)")
+                    st.write("• Complete feature values")
+                
+                with col2:
+                    st.write("**🎯 Perfect for:**")
+                    st.write("• Complete prediction audit")
+                    st.write("• External analysis tools")
+                    st.write("• Model validation")
+                    st.write("• Research documentation")
+                    st.write("• 93% recall target analysis")
+                    st.write("• Regulatory compliance")
+                
+                # Auto-generate the CSV without button click
+                try:
+                    # Use the simple and reliable CSV generator
+                    from utils.simple_csv_generator import create_test_dataset_csv, get_dataset_summary
+                    from config import features
+                    
+                    # Generate the complete test dataset using simple method
+                    csv_filename, results_df = create_test_dataset_csv(
+                        X_test=X_test,
+                        y_test=y_test,
+                        y_pred=y_pred,
+                        y_pred_proba=y_pred_proba,
+                        feature_names=features
+                    )
+                    
+                    # Get summary statistics
+                    summary_stats = get_dataset_summary(results_df)
+                    
+                    st.success("✅ **Complete Test Dataset Generated Successfully!**")
+                    st.info(f"📁 **File Location:** `{csv_filename}`")
+                    
+                    # Display comprehensive summary
+                    st.subheader("📊 Test Dataset Summary")
+                    
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.metric("Total Test Records", summary_stats['total_records'])
+                        st.metric("Dataset Split", "Test (20%)")
+                    
+                    with col2:
+                        st.metric("Actual Faults", summary_stats['actual_faults'])
+                        st.metric("Fault Percentage", f"{summary_stats['fault_percentage']:.1f}%")
+                    
+                    with col3:
+                        st.metric("Accuracy", f"{summary_stats['accuracy']:.3f}")
+                        st.metric("Precision", f"{summary_stats['precision']:.3f}")
+                    
+                    with col4:
+                        st.metric("Recall", f"{summary_stats['recall']:.3f}")
+                        
+                        # 93% recall target check
+                        if summary_stats['recall'] >= 0.93:
+                            st.success("🎯 93% Target: ACHIEVED!")
+                        else:
+                            gap = 0.93 - summary_stats['recall']
+                            st.warning(f"🎯 Gap: {gap:.3f}")
+                    
+                    # Confusion matrix summary
+                    st.subheader("🎯 Classification Summary")
+                    
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.metric("True Positives", summary_stats['true_positives'])
+                        st.success("✅ Correctly detected faults")
+                    
+                    with col2:
+                        st.metric("True Negatives", summary_stats['true_negatives'])
+                        st.success("✅ Correctly identified normal")
+                    
+                    with col3:
+                        st.metric("False Positives", summary_stats['false_positives'])
+                        if summary_stats['false_positives'] > 0:
+                            st.warning("⚠️ False alarms")
+                        else:
+                            st.success("✅ No false alarms")
+                    
+                    with col4:
+                        st.metric("False Negatives", summary_stats['false_negatives'])
+                        if summary_stats['false_negatives'] > 0:
+                            st.error("🚨 Missed faults")
+                        else:
+                            st.success("✅ No missed faults")
+                    
+                    # Show data preview
+                    st.subheader("📋 Dataset Preview")
+                    
+                    # Select key columns for display
+                    display_columns = [
+                        'Record_ID', 'Actual_Label_Text', 'Predicted_Label_Text',
+                        'Prediction_Probability', 'Confidence_Level', 'Classification_Type',
+                        'Prediction_Correct'
+                    ]
+                    
+                    # Add a few feature columns to the preview
+                    feature_cols = [col for col in results_df.columns if col.startswith('Feature_')][:3]
+                    preview_display_columns = display_columns + feature_cols
+                    
+                    # Filter only existing columns
+                    existing_display_columns = [col for col in preview_display_columns if col in results_df.columns]
+                    preview_df = results_df[existing_display_columns].head(15)
+                    st.dataframe(preview_df, use_container_width=True)
+                    
+                    # Error analysis if there are errors
+                    if summary_stats['false_negatives'] > 0 or summary_stats['false_positives'] > 0:
+                        st.subheader("🔍 Error Analysis")
+                        
+                        col1, col2 = st.columns(2)
+                        
+                        with col1:
+                            if summary_stats['false_negatives'] > 0:
+                                st.error(f"**False Negatives: {summary_stats['false_negatives']}**")
+                                fn_records = results_df[results_df['Classification_Type'] == 'False_Negative']
+                                if len(fn_records) > 0:
+                                    st.write("Sample missed faults:")
+                                    fn_sample = fn_records[['Record_ID', 'Prediction_Probability']].head(3)
+                                    for _, row in fn_sample.iterrows():
+                                        st.write(f"• Record {row['Record_ID']}: Probability {row['Prediction_Probability']:.3f}")
+                        
+                        with col2:
+                            if summary_stats['false_positives'] > 0:
+                                st.warning(f"**False Positives: {summary_stats['false_positives']}**")
+                                fp_records = results_df[results_df['Classification_Type'] == 'False_Positive']
+                                if len(fp_records) > 0:
+                                    st.write("Sample false alarms:")
+                                    fp_sample = fp_records[['Record_ID', 'Prediction_Probability']].head(3)
+                                    for _, row in fp_sample.iterrows():
+                                        st.write(f"• Record {row['Record_ID']}: Probability {row['Prediction_Probability']:.3f}")
+                    
+                    # Download button for complete test dataset
+                    if os.path.exists(csv_filename):
+                        with open(csv_filename, 'rb') as file:
+                            csv_data = file.read()
+                        
+                        st.download_button(
+                            label="📥 Download Complete Test Dataset CSV",
+                            data=csv_data,
+                            file_name=f"complete_test_dataset_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                            mime="text/csv",
+                            help="Download CSV with all test records, actual labels, and predictions",
+                            key="download_complete_test_dataset"
+                        )
+                        
+                        st.success("✅ **CSV file ready for download!**")
+                    else:
+                        st.error("❌ CSV file not found. Please try generating again.")
+                
+                except Exception as e:
+                    st.error(f"❌ Error generating complete test dataset: {str(e)}")
+                    st.info("📝 Details: Please check that all components are properly configured.")
+                    
+                    # Show error details for debugging
+                    if st.checkbox("Show Error Details", key="show_error_details"):
+                        st.code(f"Error: {str(e)}")
+                        import traceback
+                        st.code(traceback.format_exc())
+                
+                # --- END OF TAB7 IMPLEMENTATION ---
     
     # # Quick Actions
     # st.header("🚀 Quick Actions")
